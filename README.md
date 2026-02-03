@@ -59,6 +59,15 @@
 
 endmodule
 
+
 위의 코드는 HDLBits를 이용해서 구현한 FSM.
 다음 클럭 엣지에 할당할 data를 저장하기 위해 next_state를 reg type으로 지정.
 always 블록을 sequential logic과 combinational logic으로 나눠서 data를 계산하는 블록과 data를 전송하는 블록으로 구분.
+
+# 2/3 practice
+### serial FSM (UART) 구현
+
+발생한 문제: 코드 간의 combinational logic과 sequential logic을 구분하지 못함.
+->state값이 갱신되는 시기와 cnt가 갱신되는 시기가 달라져서 논리에 오류 발생.
+
+state를 두가지가 아닌 세 가지로 구분해서 해결함.
