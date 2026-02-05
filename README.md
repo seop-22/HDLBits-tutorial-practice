@@ -1,10 +1,11 @@
-# HDLBits-tutorial-practice
+# Verilog를 활용한 Digital Clock구현
 회로 설계 디자이너를 꿈꾸는 학생의 베릴로그 입문
 
 -purpose: Verilog 입문부터 sequential logic까지 학습.
 
 -tool: HDLBits, Verilog Tutorial 사이트를 이용.
 
+# HDLBits를 이용한 Verilog 입문
 2026/01/19 study: vector의 개념과 기초 연산
   bitwise/logical operator의 차이
   
@@ -64,10 +65,18 @@ endmodule
 다음 클럭 엣지에 할당할 data를 저장하기 위해 next_state를 reg type으로 지정.
 always 블록을 sequential logic과 combinational logic으로 나눠서 data를 계산하는 블록과 data를 전송하는 블록으로 구분.
 
-# 2/3 practice
+## 2/3 practice
 ### serial FSM (UART) 구현
 
 발생한 문제: 코드 간의 combinational logic과 sequential logic을 구분하지 못함.
 ->state값이 갱신되는 시기와 cnt가 갱신되는 시기가 달라져서 논리에 오류 발생.
 
 state를 두가지가 아닌 세 가지로 구분해서 해결함.
+
+
+# VS code 모듈 생성
+## 2/5 practice
+### 클럭 주파수에 맞춰서 1초 신호를 만들어내는 모듈
+-problem: 1초마다 신호를 주는 모듈의 output signal을 1) pulse 2) 반짝 신호 둘 중에 선택이 필요함
+-만약 pulse로 만들지 않는다면 always(*)문을 사용해야함, 다음 모듈에서 클럭 신호에 동기화시키지 못한다는 문제가 발생할 것 같음
+---> 결국에는 clk처럼 pulse 형태를 가지는 신호로 만들기로 결정함.
