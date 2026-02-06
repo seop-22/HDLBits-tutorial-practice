@@ -80,3 +80,11 @@ state를 두가지가 아닌 세 가지로 구분해서 해결함.
 -problem: 1초마다 신호를 주는 모듈의 output signal을 1) pulse 2) 반짝 신호 둘 중에 선택이 필요함
 -만약 pulse로 만들지 않는다면 always(*)문을 사용해야함, 다음 모듈에서 클럭 신호에 동기화시키지 못한다는 문제가 발생할 것 같음
 ---> 결국에는 clk처럼 pulse 형태를 가지는 신호로 만들기로 결정함.
+
+
+## 2/6 practice
+### gtkwave를 이용한 파형 확인
+테스트 벤치 코드와 실제 모듈을 구현한 코드를 이용해서 gtk wave에서 파형을 확인함
+<img width="743" height="461" alt="image" src="https://github.com/user-attachments/assets/52a6a8ec-711f-4d13-922c-8df26dd70fb9" />
+
+1초가 지날 때마다 신호를 잠깐 주는 모듈을 완성
