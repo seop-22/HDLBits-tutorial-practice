@@ -104,3 +104,39 @@ state를 두가지가 아닌 세 가지로 구분해서 해결함.
 -problem: 컴파일까지 정상적으로 완료됐지만 gtkwave에서 데이터가 x로 나오는 현상
 
 -sol: 제대로 된 값이 나오지 않는 신호들을 보면서 초기값으로 리셋되지 않았음을 확인. 리셋이 정상적으로 동작하기 위해 모듈 코드에서 reset신호를 synchronous에서 asynchronous로 변경함.
+
+
+## 2/12
+### 시간 표현을 위한 24진 counter
+시 단위는 초,분과 달리 23까지 세는 카운터가 필요. 60진수 카운터에서 변수의 bit 크기와 입출력 신호를 일부 변경해서 구현.
+
+//24진 카운터
+module hour_cnt (
+    input clk,
+    input cin,
+    input rst,
+    output reg [4:0] res
+);
+    always @(posedge clk or posedge rst) begin
+        if (rst) begin
+            res <=5'd0;
+        end
+        else begin
+            if (cin) begin
+                if (res==5'd23) begin
+                    res <= 5'd0;
+                end
+                else begin
+                    res <= res + 5'd1;
+                end
+            end
+            else begin
+                res <= res;
+            end
+        end
+    end
+
+
+endmodule
+
+-problem: output인 res값이 
